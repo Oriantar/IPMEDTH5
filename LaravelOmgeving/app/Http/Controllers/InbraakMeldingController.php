@@ -15,7 +15,9 @@ class InbraakMeldingController extends Controller
 
         $inbraakMelding = new inbraakMelding;
         
+        
         if($id->segment(3) == null){
+            
             if(str_contains($id->segment(2), "bs-") || str_contains($id->segment(2), "c-")){
             $inbraakMelding->sensor_id = $id->segment(2);
             $inbraakMelding->save();}
