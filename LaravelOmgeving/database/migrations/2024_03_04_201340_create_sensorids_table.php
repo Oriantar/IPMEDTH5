@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('sensorids', function (Blueprint $table) {
             $table->id();
             $table->String("sensorid", 15);
+            $table->String("cameraNaam");
+            $table->String("cameraBeeld");
+            $table->foreignId("user_id")->constrained()->cascadeOnDelete();
+            $table->timestamps();
         });
     }
 

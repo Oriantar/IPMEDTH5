@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\InbraakMeldingController;
+use App\Http\Controllers\MeldingenController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CameraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('register');
 });
 
 Route::get('/dashboard', function () {
@@ -27,5 +30,17 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::middleware('auth')->group(function (){
+    Route::get('/camera', [CameraController::class, 'index'])->name('camera.index');
+    Route::get('/camera/add', [CameraController::class, 'add'])->name('camera.add');
+    Route::post('/camera/store', [CameraController::class, 'store'])->name('camera.store');
+});
+
+Route::middleware('auth')->group(function (){
+    Route::get('/meldingen', [MeldingenController::class, 'index'])->name('meldingen.index');
+});
+
+Route::get('/inbraakmelding/{id}', [InbraakMeldingController::class,'index']);
 
 require __DIR__.'/auth.php';

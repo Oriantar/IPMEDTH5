@@ -2,7 +2,7 @@
 
 namespace App\Notifications;
 
-use Illuminate\Models\inbraakMelding;
+use App\Models\inbraakMelding;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
