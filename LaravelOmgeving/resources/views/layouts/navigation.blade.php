@@ -21,6 +21,9 @@
                     <x-nav-link :href="route('meldingen.index')" :active="request()->routeIs('meldingen.index')">
                         {{__('Meldingen')}}
                     </x-nav-link>
+                    <x-nav-link :href="route('instellingen.index')" :active="request()->routeIs('instellingen.index')">
+                        {{__('Instellingen')}}
+                    </x-nav-link>
                 </div>
             </div>
 

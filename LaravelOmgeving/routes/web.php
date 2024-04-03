@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\InbraakMeldingController;
+use App\Http\Controllers\InstellingenController;
 use App\Http\Controllers\MeldingenController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\AlarmController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CameraController;
 
@@ -40,7 +43,11 @@ Route::middleware('auth')->group(function (){
 Route::middleware('auth')->group(function (){
     Route::get('/meldingen', [MeldingenController::class, 'index'])->name('meldingen.index');
 });
-
+Route::middleware('auth')->group(function (){
+    Route::get('/instellingen', [InstellingenController::class, 'index'])->name('instellingen.index');
+});
+Route::get('/alarm', [AlarmController::class, 'index'])->name('alarm.index');
+Route::get('/notification', [NotificationController::class, 'index'])->name('notification.index');
 Route::get('/inbraakmelding/{id}', [InbraakMeldingController::class,'index']);
 
 require __DIR__.'/auth.php';
