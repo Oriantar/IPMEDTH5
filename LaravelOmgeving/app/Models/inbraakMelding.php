@@ -19,6 +19,7 @@ class inbraakMelding extends Model
     protected $dispatchesEvents = [
         'created' => InbraakMeldingCreated::class,
     ];
+    
     public function user():BelongsTo 
     {
         return $this->belongsTo(User::class);
