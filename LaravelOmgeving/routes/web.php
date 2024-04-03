@@ -21,7 +21,7 @@ use App\Http\Controllers\CameraController;
 */
 
 Route::get('/', function () {
-    return redirect('register');
+    return view('welcome');
 });
 
 Route::get('/dashboard', function () {

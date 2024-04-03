@@ -37,7 +37,8 @@ class NewInbraakMelding extends Notification
     {
         return (new MailMessage)
                     ->subject('Nieuwe inbraakmelding')
-                    ->line('Camera x is afgegaan');
+                    ->line('Camera x is afgegaan')
+                    ->line('Bedankt voor het gebruiken van FlappyCam');
 
     }
 
