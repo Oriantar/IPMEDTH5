@@ -1,10 +1,14 @@
 <x-app-layout>
-<a href="/camera/add">add</a>
+  <div class="achtergrond">
+    <a class="toevoegen" href="/camera/add">+</a>
 
-@foreach ($sensors as $sensor)
-    {{$sensor->cameraNaam}}
-    <iframe id="ytplayer" type="text/html" width="640" height="360"
-  src={{"$sensor->cameraBeeld"}}
-  frameborder="0"></iframe>
-@endforeach
+    @foreach ($sensors as $sensor)
+        {{$sensor->cameraNaam}}
+        <iframe id="ytplayer" type="text/html" width="640" height="360"
+      src={{"$sensor->cameraBeeld"}}
+      frameborder="0"></iframe>
+    @endforeach
+    <p> hoi </p>
+  </div>
+  
 </x-app-layout>

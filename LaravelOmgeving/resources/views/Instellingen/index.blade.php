@@ -1,7 +1,23 @@
 <x-app-layout>
-    <a href="/alarm">Alarm</a>
-    <a href="/notification">Notificaties</a>
+    <div class="achtergrond">
+        <div class="instelling-container">
+            <p> Alarm </p>
 
-    Alarm is {{$alarm->alarm}}
-    Notification is {{$notification->notification}}
+            <!-- <button id="myButton" class="button-white">Click me</button> -->
+            
+            <label class="toggle-switch">
+                <a href="/alarm">
+                <input type="checkbox">
+                <div class="toggle-switch-background">
+                    <div class="toggle-switch-handle"></div>
+                </div>
+                </a>
+            </label>
+            <p> Notificaties </p>
+            <a href="/notification">Notificaties</a>
+        </div>
+
+        Alarm is {{$alarm->alarm}}
+        Notification is {{$notification->notification}}
+    </div>
 </x-app-layout>
