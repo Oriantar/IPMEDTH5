@@ -33,7 +33,6 @@ jobs:
       working-directory: ./LaravelOmgeving
       run: |
         npm install
-        npm run dev
     - name: Create Database
       working-directory: ./LaravelOmgeving
       run: |
