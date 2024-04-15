@@ -38,4 +38,6 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       working-directory: ./LaravelOmgeving
-      run: php artisan test
+      run: | 
+        php artisan migrate:fresh --seed
+        php artisan test
