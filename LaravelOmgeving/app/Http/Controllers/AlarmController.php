@@ -18,4 +18,8 @@ class AlarmController extends Controller
         $alarm->save();
         return redirect("instellingen");
 }
+
+public function show(){
+    return Alarm::first()->alarm;
+}
 }
