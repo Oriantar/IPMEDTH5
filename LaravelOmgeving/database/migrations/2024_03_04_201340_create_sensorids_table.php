@@ -15,9 +15,14 @@ return new class extends Migration
             $table->id();
             $table->String("sensorid", 15);
             $table->String("cameraNaam");
-            $table->String("cameraBeeld");
+            $table->String("cameraBeeld")->default("./");
             $table->foreignId("user_id")->constrained()->cascadeOnDelete();
             $table->timestamps();
+        });
+
+        Schema::create('senorids', function (Blueprint $table){
+            $table->id();
+            $table->String('senor');
         });
     }
 

@@ -25,13 +25,11 @@ class CameraController extends Controller
     }
 
     public function store(Request $request): RedirectResponse{
-
+        
         $validated = $request->validate([
             'sensorid' => 'required|string|max:15',
-            'cameraBeeld' => 'required|string',
             "cameraNaam" => 'required|string',
             ]);
-
         sensorids::create([
             'user_id' => Auth()->user()->id,
         ] + $validated);
