@@ -40,8 +40,11 @@ jobs:
         touch database/database.sqlite
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
       env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
+        DB_HOST: sql11.freesqldatabase.com
+        DB_PORT: 3306
+        DB_DATABASE: sql11699209
+        DB_USERNAME: sql11699209
+        DB_PASSWORD: rvWIbquwU9
       working-directory: ./LaravelOmgeving
       run: | 
         php artisan migrate:fresh --seed
