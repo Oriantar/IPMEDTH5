@@ -21,13 +21,13 @@ jobs:
       working-directory: ./app
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
-      working-directory: ./app
+      working-directory: ./LaravelOmgeving
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
     - name: Generate key
-      working-directory: ./app
+      working-directory: ./LaravelOmgeving
       run: php artisan key:generate
     - name: Directory Permissions
-      working-directory: ./app
+      working-directory: ./LaravelOmgeving
       run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
       run: |
@@ -37,5 +37,5 @@ jobs:
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
-      working-directory: ./app
+      working-directory: ./LaravelOmgeving
       run: php artisan test
