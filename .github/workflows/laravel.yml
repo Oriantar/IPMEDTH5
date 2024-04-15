@@ -30,6 +30,7 @@ jobs:
       working-directory: ./LaravelOmgeving
       run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
+      working-directory: ./LaravelOmgeving
       run: |
         mkdir -p database
         touch database/database.sqlite
