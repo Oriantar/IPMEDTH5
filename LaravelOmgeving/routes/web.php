@@ -48,6 +48,6 @@ Route::middleware('auth')->group(function (){
 });
 Route::get('/alarm', [AlarmController::class, 'index'])->name('alarm.index');
 Route::get('/notification', [NotificationController::class, 'index'])->name('notification.index');
-Route::get('/inbraakmelding/{id}', [InbraakMeldingController::class,'index']);
+Route::post('/inbraakmelding/{id}/camerabeeld', [InbraakMeldingController::class,'index']);
 
 require __DIR__.'/auth.php';
