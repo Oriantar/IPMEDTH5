@@ -47,7 +47,8 @@ Route::middleware('auth')->group(function (){
     Route::get('/instellingen', [InstellingenController::class, 'index'])->name('instellingen.index');
 });
 Route::get('/alarm', [AlarmController::class, 'index'])->name('alarm.index');
+Route::get('/alarm/show', [AlarmController::class, 'show'])->name('alarm.show');
 Route::get('/notification', [NotificationController::class, 'index'])->name('notification.index');
-Route::post('/inbraakmelding/{id}/camerabeeld', [InbraakMeldingController::class,'index']);
+Route::get('/inbraakmelding/{id}/camerabeeld', [InbraakMeldingController::class,'index']);
 
 require __DIR__.'/auth.php';

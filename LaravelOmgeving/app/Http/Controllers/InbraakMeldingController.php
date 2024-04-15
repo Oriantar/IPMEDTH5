@@ -25,9 +25,11 @@ class InbraakMeldingController extends Controller
             $inbraakMelding->user_id = $sensor->user_id;
             $inbraakMelding->save();
         }
-        if($camera == $inbraakMelding->sensor_id->camerabeeld)continue;
+
+        if($camera == $sensor) return redirect('/');
         else{
-            $inbraakMelding->sensor_id->camerabeeld = $camera
+            $sensor->cameraBeeld = $camera;
+            $sensor->save();
         }
         return redirect('/');
     }
