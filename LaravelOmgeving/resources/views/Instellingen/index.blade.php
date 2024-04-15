@@ -5,10 +5,10 @@
 
             <!-- <button id="myButton" class="button-white">Click me</button> -->
             
-            <label class="toggle-switch">
+            <label id="alarmButton" data-alarm="<?php echo htmlspecialchars($alarm->alarm); ?>" class="button-white">
+                <input id="alarmButtonCheckbox" type="checkbox">
                 <a href="/alarm">
-                <input type="checkbox">
-                <div class="toggle-switch-background">
+                <div id="alarmButtonBackground" class="toggle-switch-background">
                     <div class="toggle-switch-handle"></div>
                 </div>
                 </a>
@@ -20,4 +20,5 @@
         Alarm is {{$alarm->alarm}}
         Notification is {{$notification->notification}}
     </div>
+    <input type="hidden" id="alarmValue" value="{{ $alarm->alarm }}">
 </x-app-layout>
