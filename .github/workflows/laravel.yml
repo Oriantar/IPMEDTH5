@@ -29,6 +29,11 @@ jobs:
     - name: Directory Permissions
       working-directory: ./LaravelOmgeving
       run: chmod -R 777 storage bootstrap/cache
+    - name: Use NPM
+      working-directory: ./LaravelOmgeving
+      run: |
+        npm install
+        npm run dev
     - name: Create Database
       working-directory: ./LaravelOmgeving
       run: |
