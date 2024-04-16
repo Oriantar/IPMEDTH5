@@ -7,37 +7,73 @@
 }
 
 p {
+    /* background-color: red; */
     color: white;
+    /* background-color: red; */
+    font-size: 24px;
+    margin: auto; /* Set left and right margins to auto */
+    width: fit-content; /* Optionally, set the width of the div */
 }
 
 button {
+    padding: 12px;
+    margin-left: 30%;
+    width: 40%;
     background-color: #9DD9D2;
-    color: white;
-    border-radius: 10%;
+    color: black;
+    border-radius: 12px;
 }
 
 hr {
+    margin: 16px;
     color: white;
     height: 4px;
 }
 
 .achtergrond {
+    display: flex;
+    justify-content: center;
+    column-gap: 12px;
+    row-gap: 12px;
     width: 100%;
     height: 100vh;
     background-color: #05003B;   
 }
 
+.meldingen-container {
+    height: 50%;
+    margin-top: 12px;
+}
+
+.instellingen-pagina-container {
+    width: 30%;
+    margin-top: 12px;
+    height: 50%;
+}
+
 .instellingen-container {
+    /* background-color: purple; */
+    
     display: grid;
-    /* grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr; */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Each column will be at least 200px wide, but will expand to fill available space */
+    grid-gap: 10px; /* Gap between grid items */
+    grid-template-columns: auto auto; /* Two columns */
+    grid-template-rows: auto auto auto; /* Three rows */
+    grid-gap: 10px; /* Gap between grid items */
     grid-template-areas: 
-        "p      label"
-        "p      label"
-        "div    div";
+    "p      label"
+    "p      label"
+    "hoi    hoi";
 }
 
 .alarmtest-container {
+    grid-area: hoi;
+    position: relative;
+    /* padding-left: 50%; */
+    /* background-color: green; */
+    justify-self: center;
     display: grid;
     grid-template-areas:
         "hr"
@@ -60,11 +96,15 @@ hr {
 
 
 .button-white {
+    /* display: flex;
+    justify-content: center; */
+    margin-left: 30%;
     position: relative;
     display: inline-block;
     width: 80px;
     height: 40px;
     cursor: pointer;
+    /* background-color: yellow; */
   }
   
   .button-white input[type="checkbox"] {
