@@ -48,7 +48,7 @@ jobs:
     needs: laravel-setup
     steps:
       - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
-        working-directory: ./LaravelOmgeving
+        working-directory: ../LaravelOmgeving
         run: | 
           php artisan migrate:fresh --seed
           php artisan test
