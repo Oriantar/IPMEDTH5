@@ -14,10 +14,6 @@ class AlarmTest extends TestCase
 
     /** @test */
     
-    public function setUpDatabase(){
-        
-        
-    }
     public function flappycam_can_change_alarm_to_true()
     {   
         DB::table("alarms")->insert([
