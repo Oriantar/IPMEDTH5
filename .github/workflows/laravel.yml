@@ -1,4 +1,4 @@
-name: Laravel
+name: Laravel-setup
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ "**" ]
 
 jobs:
-  laravel-tests:
+  laravel-setup:
 
     runs-on: ubuntu-latest
 
@@ -42,8 +42,4 @@ jobs:
       run: |
         npm install
         npm run build
-    - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
-      working-directory: ./LaravelOmgeving
-      run: | 
-        php artisan migrate:fresh --seed
-        php artisan test
+

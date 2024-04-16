@@ -14,7 +14,7 @@ class AlarmTest extends TestCase
 
     /** @test */
     
-    public function flappycam_can_change_alarm_to_true() : void
+    public function test_flappycam_can_change_alarm_to_true() : void
     {   
         DB::table("alarms")->insert([
             'alarm' => 0,
@@ -32,7 +32,7 @@ class AlarmTest extends TestCase
           
        }
     
-       public function flappycam_can_change_alarm_to_false() : void{
+       public function test_flappycam_can_change_alarm_to_false() : void{
         $user = User::first();
         $response = $this
             ->actingAs($user)
