@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // var alarmValue = {!! json_encode($alarm->alarm) !!};
     // var alarmValue = document.getElementById('alarm').getAttribute('data-alarm');
     var alarmValue = document.getElementById('alarmValue').value;
+    var notificatieValue = document.getElementById('notificatieValue').value;
     console.log(alarmValue)
 
     console.log(button.classList);
@@ -40,22 +41,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
         var styleElement = document.createElement("style");
         var cssCode = `
-        .toggle-switch-handle {
+        #alarmHandle {
             transform: translateX(45px);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 0 0 3px #05c46b;
         }
 
-        .toggle-switch-background {
+        #alarmButtonBackground {
             background-color: #05c46b;
             box-shadow: inset 0 0 0 2px #04b360;
         }
 
-        .button-white:before {
+        #alarmButton:before {
             color: #05c46b;
             right: -15px;
         }
 
-        .toggle-switch-background .toggle-switch-handle {
+        #alarmButtonBackground #alarmHandle {
             transform: translateX(40px);
         }
         `;
@@ -84,4 +85,40 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         
     });
+    if (notificatieValue == 1) {
+        var styleElement = document.createElement("style");
+        var cssCode = `
+        #notificatieHandle {
+            transform: translateX(45px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 0 0 3px #05c46b;
+        }
+
+        #notificatieButtonBackground {
+            background-color: #05c46b;
+            box-shadow: inset 0 0 0 2px #04b360;
+        }
+
+        #notificatieButton:before {
+            color: #05c46b;
+            right: -15px;
+        }
+
+        #notificatieButtonBackground #notificatieHandle {
+            transform: translateX(40px);
+        }
+        `;
+
+        // Set the CSS code as the text content of the <style> element
+        styleElement.textContent = cssCode;
+    
+        // Append the <style> element to the document's <head>
+        document.head.appendChild(styleElement);
+        }
+
+    console.log(alarmButtonCheckbox.checked);
+
+    
+
+
+    
 });

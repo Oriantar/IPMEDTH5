@@ -57,7 +57,7 @@ p {
     background-color: #ddd;
     border-radius: 20px;
     box-shadow: inset 0 0 0 2px #ccc;
-    transition: background-color 0.3s ease-in-out;
+    /* transition: background-color 0.3s ease-in-out; */
   }
   
   .toggle-switch-handle {
@@ -69,7 +69,7 @@ p {
     background-color: #fff;
     border-radius: 50%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
+    /* transition: transform 0.3s ease-in-out; */
   }
   
   .button-white::before {
@@ -81,7 +81,7 @@ p {
     font-weight: bold;
     color: #aaa;
     text-shadow: 1px 1px #fff;
-    transition: color 0.3s ease-in-out;
+    /* transition: color 0.3s ease-in-out; */
   }
   
   .button-white input[type="checkbox"]:checked + .toggle-switch-handle {
