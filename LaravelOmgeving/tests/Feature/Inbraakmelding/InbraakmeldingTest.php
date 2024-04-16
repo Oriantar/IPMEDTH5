@@ -26,10 +26,8 @@ class InbraakMeldingTest extends TestCase
 
         $response = $this
             ->actingAs($user)
-            ->patch('/inbraakmelding/flappy_is_beste/camerabeeld?url=1', [
-                'name' => 'Test User',
-                'email' => $user->email,
-            ]);
+            ->get('/inbraakmelding/flappy_is_beste/camerabeeld?url=1');
+        
         $response
             ->assertSessionHasNoErrors()
             ->assertRedirect('/');
