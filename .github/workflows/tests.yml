@@ -11,7 +11,7 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-  - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
+    - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
       working-directory: ./LaravelOmgeving
       run: | 
         php artisan migrate:fresh --seed
