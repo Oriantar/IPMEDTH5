@@ -22,10 +22,15 @@
                 </div>
                 </a>
             </label>
+            <div class="alarmtest-container">
+                <hr>
+                <button> Test alarm </button>
+                <p> Zodra deze knop wordt ingedrukt, zal het alarm 5 seconden lang afgaan. </p>
+            </div>
         </div>
 
-        Alarm is {{$alarm->alarm}}
-        Notification is {{$notification->notification}}
+        <!-- Alarm is {{$alarm->alarm}}
+        Notification is {{$notification->notification}} -->
     </div>
     <input type="hidden" id="alarmValue" value="{{ $alarm->alarm }}">
     <input type="hidden" id="notificatieValue" value="{{ $notification->notification }}">
