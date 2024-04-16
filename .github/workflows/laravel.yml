@@ -2,38 +2,32 @@ name: Laravel
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "**" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "**" ]
 
 jobs:
   laravel-tests:
 
     runs-on: ubuntu-latest
 
-    services:
-      mysql:
-        image: mysql:5.7
-        env:
-          MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: laravel
-        ports:
-          - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-    
+
     steps:
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
         php-version: '8.2'
+    - uses: shogo82148/actions-setup-mysql@v1
+      with:
+        mysql-version: "8.0"
+    - name: Create Database
+      run: mysql -uroot -e 'CREATE DATABASE laravel'
+    - name: Test Database
+      run: |
+        mysql -uroot -e 'SHOW DATABASES; use laravel; SHOW TABLES;'
     - uses: actions/checkout@v3
     - name: Copy .env
       working-directory: ./LaravelOmgeving
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-    - name: Setup application for SQLite
-      run: |
-        touch database/database.sqlite
-        echo "DB_CONNECTION=sqlite" >> LaravelOmgeving/.env
-        echo "DB_DATABASE=${{ github.workspace }}/database/database.sqlite" >> LaravelOmgeving/.env
     - name: Install Dependencies
       working-directory: ./LaravelOmgeving
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist --ignore-platform-reqs
@@ -47,6 +41,7 @@ jobs:
       working-directory: ./LaravelOmgeving
       run: |
         npm install
+        npm run build
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
       working-directory: ./LaravelOmgeving
       run: | 
