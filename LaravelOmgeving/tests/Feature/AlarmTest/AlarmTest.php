@@ -13,15 +13,13 @@ class AlarmTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function setUpTheTestEnvironment(): void
-    {
+    
+    public function flappycam_can_change_alarm_to_true() : void
+    {   
         DB::table("alarms")->insert([
             'alarm' => 0,
         ]);
         User::factory()->create();
-    }
-    public function flappycam_can_change_alarm_to_true() : void
-    {   
         $user = User::first();
         $response = $this
             ->actingAs($user)
