@@ -41,6 +41,7 @@ jobs:
       working-directory: ./LaravelOmgeving
       run: |
         npm install
+        npm run build
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
       working-directory: ./LaravelOmgeving
       run: | 
