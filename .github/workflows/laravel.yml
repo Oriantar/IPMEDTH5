@@ -24,7 +24,7 @@ jobs:
       run: |
         touch database/database.sqlite
         echo "DB_CONNECTION=sqlite" >> LaravelOmgeving/.env
-        echo "DB_DATABASE=${{ github.workspace }}/database/database.sqlite" >> LaravelOmgeving/.env
+        echo "DB_DATABASE=$/.github/workflows/laravel/database/database.sqlite" >> LaravelOmgeving/.env
     - name: Install Dependencies
       working-directory: ./LaravelOmgeving
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist --ignore-platform-reqs
