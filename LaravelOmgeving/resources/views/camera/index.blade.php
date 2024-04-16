@@ -8,7 +8,6 @@
       src={{"$sensor->cameraBeeld"}}
       frameborder="0"></iframe>
     @endforeach
-    <p> hoi </p>
   </div>
   
 </x-app-layout>
