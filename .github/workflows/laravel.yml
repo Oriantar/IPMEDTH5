@@ -44,6 +44,7 @@ jobs:
         npm run build
   
   laravel-tests:
+    runs-on: ubuntu-latest
     steps:
       - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
         working-directory: ./LaravelOmgeving
