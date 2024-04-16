@@ -15,13 +15,15 @@ class AlarmTest extends TestCase
     /** @test */
     
     public function setUpDatabase(){
-        DB::table("alarms")->insert([
-            'alarm' => 0,
-        ]);
+        
         
     }
     public function flappycam_can_change_alarm_to_true()
-    {
+    {   
+        DB::table("alarms")->insert([
+            'alarm' => 0,
+        ]);
+
         $user = User::factory()->create();
         $response = $this
             ->actingAs($user)
@@ -31,5 +33,12 @@ class AlarmTest extends TestCase
             ->assertRedirect('instellingen');
     
         $this->assertSame(1, Alarm::first()->alarm);
+        $response = $this
+            ->actingAs($user)
+            ->get('/alarm');
+        $response
+            ->assertSessionHasNoErrors()
+            ->assertRedirect('instellingen');
+        $this->assertSame(0, Alarm::first()->alarm);  
        }   
 }
