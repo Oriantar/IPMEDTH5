@@ -4,7 +4,7 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use App\Models\InbraakMelding;
+use App\Models\inbraakMelding;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -15,7 +15,7 @@ class InbraakMeldingTest extends TestCase
     /** @test */
     public function flappycam_can_make_inbraak_melding()
     {
-        $count = InbraakMelding::count();
+        $count = inbraakMelding::count();
         $user = User::factory()->create();
         DB::table('sensorids')->insert([
             'id' => 1,
@@ -34,6 +34,6 @@ class InbraakMeldingTest extends TestCase
             ->assertSessionHasNoErrors()
             ->assertRedirect('/');
         $count += 1;
-        $this->assertSame($count, InbraakMelding::count());
+        $this->assertSame($count, inbraakMelding::count());
     }
 }
