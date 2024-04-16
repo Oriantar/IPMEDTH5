@@ -33,7 +33,7 @@ class InbraakMeldingTest extends TestCase
         $response
             ->assertSessionHasNoErrors()
             ->assertRedirect('/');
-        
+        echo inbraakMelding::count();
         $this->assertSame(1, inbraakMelding::count());
     }
 }
