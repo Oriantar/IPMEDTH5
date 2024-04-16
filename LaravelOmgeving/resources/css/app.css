@@ -18,8 +18,11 @@ p {
 
 .instellingen-container {
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
+    /* grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr; */
+    grid-template-areas: 
+        "p label"
+        "p label";
 }
 
 /* .button-white {

@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="achtergrond">
-        <div class="instelling-container">
+        <div class="instellingen-container">
             <p> Alarm </p>
 
             <!-- <button id="myButton" class="button-white">Click me</button> -->
