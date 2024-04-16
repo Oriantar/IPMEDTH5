@@ -20,6 +20,11 @@ jobs:
     - name: Copy .env
       working-directory: ./LaravelOmgeving
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+    -name: Setup application for SQLite
+      run: |
+        touch database/database.sqlite
+        echo "DB_CONNECTION=sqlite" >> LaravelOmgeving/.env
+        echo "DB_DATABASE=${{ github.workspace }}/database/database.sqlite" >> LaravelOmgeving/.env
     - name: Install Dependencies
       working-directory: ./LaravelOmgeving
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist --ignore-platform-reqs
@@ -33,18 +38,7 @@ jobs:
       working-directory: ./LaravelOmgeving
       run: |
         npm install
-    - name: Create Database
-      working-directory: ./LaravelOmgeving
-      run: |
-        mkdir -p database
-        touch database/database.sqlite
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
-      env:
-        DB_HOST: sql11.freesqldatabase.com
-        DB_PORT: 3306
-        DB_DATABASE: sql11699209
-        DB_USERNAME: sql11699209
-        DB_PASSWORD: rvWIbquwU9
       working-directory: ./LaravelOmgeving
       run: | 
         php artisan migrate:fresh --seed

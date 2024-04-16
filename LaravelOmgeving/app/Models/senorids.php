@@ -10,7 +10,7 @@ class sensorids extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'sensorid',
+        'senorid',
     ];
 
     public function user(): BelongsTo 
