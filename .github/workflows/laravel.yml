@@ -1,4 +1,4 @@
-name: Laravel
+name: Testing and stuff
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ "**" ]
 
 jobs:
-  laravel-setup:
+  laravel:
 
     runs-on: ubuntu-latest
 
