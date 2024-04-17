@@ -90,7 +90,6 @@ void movement_detected_check(){
   else
   if (pinStatePrevious == HIGH && pinStateCurrent == LOW) {   // pin state change: HIGH -> LOW
     Serial.println("Motion stopped!");
-    set_alarm();
   }
 }
 
@@ -139,8 +138,15 @@ void get_remote_alarm_state(){
             if(httpCode == HTTP_CODE_OK) {
                 String payload = http.getString();
                 remote_alarm_state = payload.toInt();
-                alarm_check = remote_alarm_state;
                 Serial.println(remote_alarm_state);
+                if(remote_alarm_state == 0){
+                  alarm_check = 0;
+                  set_alarm();
+                  Serial.println("HET ALARM STAAT UIT!!!!!!!!!!!!!!!!!");
+                }
+                else{
+                  alarm_check = 1;
+                }
             }
         }
         http.end();
@@ -179,8 +185,6 @@ void set_remote_alarm(){
         if(httpCode > 0) {
             Serial.println(httpCode);
             if(httpCode == HTTP_CODE_OK) {
-                // String payload = http.getString();
-                // Serial.println(remote_alarm_state);
             }
         }
         http.end();
