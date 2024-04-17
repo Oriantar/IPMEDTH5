@@ -22,9 +22,9 @@ const int PIN_TO_SENSOR = 19; // GPIO19 pin connected to OUTPUT pin of sensor
 int pinStateCurrent   = LOW;  // current state of pin
 int pinStatePrevious  = LOW;  // previous state of pin
 
-const String camera_url = "http://192.168.134.128";
+const String camera_url = "http://192.168.195.128";
 
-const char* serverUrl = "192.168.151.62";
+const char* serverUrl = "192.168.195.62";
 
 const char* ssid = "AndroidAP";
 const char* wifi_password = "sjat1240"; 
@@ -42,7 +42,7 @@ long REQUEST_INTERVAL_TIME = 1000;
 
 void setup() {
 
-    USE_SERIAL.begin(9600);
+    USE_SERIAL.begin(115200);
 
     WiFi.begin(ssid, wifi_password);
 
@@ -92,7 +92,6 @@ void movement_detected_check(){
     Serial.println("Motion stopped!");
     set_alarm();
   }
-  start_time = millis();
 }
 
 void post_camera(){
@@ -100,7 +99,7 @@ void post_camera(){
   WiFiClient client;
   Serial.println("WiFi connected yallah");
   String postData = "sensor_id=flappy_is_beste";
-  String url = "/inbraakmelding/flappy_is_beste/camerabeeld?url=http://192.168.151.128";
+  String url = "/inbraakmelding/flappy_is_beste/camerabeeld?url=http://192.168.195.128";
 
   if (client.connect(serverUrl, port)){
       // Make a GET request
@@ -181,9 +180,9 @@ void set_led(int led_state){
 void loop() {
   button1.loop();
   button2.loop();
-  if(enough_time_passed()){
-    movement_detected_check();
-  }
+  
+  movement_detected_check();
+
   if(button1.isPressed()){
     if (!alarm_check) {
       alarm_check = 1;
