@@ -23,8 +23,9 @@ int pinStateCurrent   = LOW;  // current state of pin
 int pinStatePrevious  = LOW;  // previous state of pin
 
 const String camera_url = "http://192.168.195.128";
-
 const char* serverUrl = "192.168.195.62";
+
+const String camera_id = "UW_CAMERA_ID";  
 
 const char* ssid = "AndroidAP";
 const char* wifi_password = "sjat1240"; 
@@ -97,7 +98,6 @@ void post_camera(){
   if(WiFi.status() == WL_CONNECTED) {
   WiFiClient client;
   Serial.println("WiFi connected");
-  String camera_id = "UW_CAMERA_ID";  
   String url = "/inbraakmelding/" + String(camera_id) + "/camerabeeld?url=" + String(camera_url);
 
   if (client.connect(serverUrl, port)){
