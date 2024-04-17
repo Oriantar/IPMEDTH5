@@ -23,11 +23,11 @@
                     </div>
                     </a>
                 </label>
-                <div class="alarmtest-container">
+                <!-- <div class="alarmtest-container">
                     <hr>
                     <button> Test alarm </button>
                     <p> Zodra deze knop wordt ingedrukt, zal het alarm 5 seconden lang afgaan. </p>
-                </div>
+                </div> -->
             </div>
         </div>
 
