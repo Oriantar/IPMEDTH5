@@ -220,3 +220,7 @@ nav {
     border-radius: 12px;
     font-size: 20px;
 }
+
+.naam-knop {
+    background-color: transparent;
+}
