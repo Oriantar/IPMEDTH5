@@ -15,13 +15,14 @@ jobs:
         php-version: '8.2'
   Mysql:
     runs-on: ubuntu-latest
+
     steps:
       - uses: shogo82148/actions-setup-mysql@v1
       with:
         mysql-version: "8.0"
        - name: Create Database
       run: mysql -uroot -e 'CREATE DATABASE laravel'
-    - name: Test Database
+      - name: Test Database
       run: |
         mysql -uroot -e 'SHOW DATABASES; use laravel; SHOW TABLES;'
 
