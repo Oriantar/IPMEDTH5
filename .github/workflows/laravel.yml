@@ -60,8 +60,8 @@ jobs:
       run: |
         npm install
         npm run build
+    - name: update the database
+      run: php artisan migrate:fresh --seed
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
       working-directory: ./LaravelOmgeving
-      run: | 
-        php artisan migrate:fresh --seed
-        php artisan test
+      run: php artisan test
