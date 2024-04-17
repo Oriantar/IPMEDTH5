@@ -43,7 +43,7 @@ jobs:
         npm install
         npm run build
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
-        working-directory: LaravelOmgeving
+        working-directory: ./LaravelOmgeving
         run: | 
           php artisan migrate:fresh --seed
           php artisan test
