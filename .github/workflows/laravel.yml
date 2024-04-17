@@ -42,13 +42,11 @@ jobs:
       run: |
         npm install
         npm run build
-  
-  laravel-tests:
-    runs-on: ubuntu-latest
-    needs: laravel-setup
-    steps:
-      - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
+    - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
         working-directory: LaravelOmgeving
         run: | 
           php artisan migrate:fresh --seed
           php artisan test
+  
+
+      
