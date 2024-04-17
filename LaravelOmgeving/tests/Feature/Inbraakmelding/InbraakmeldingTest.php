@@ -15,7 +15,7 @@ class InbraakMeldingTest extends TestCase
     /** @test */
     public function flappycam_can_make_inbraak_melding()
     {
-        $count = inbraakMelding::count();
+        
         $user = User::factory()->create();
         DB::table('sensorids')->insert([
             'id' => 1,
@@ -26,14 +26,12 @@ class InbraakMeldingTest extends TestCase
 
         $response = $this
             ->actingAs($user)
-            ->patch('/inbraakmelding/flappy_is_beste/camerabeeld?url=1', [
-                'name' => 'Test User',
-                'email' => $user->email,
-            ]);
+            ->get('/inbraakmelding/flappy_is_beste/camerabeeld?url=1');
+        
         $response
             ->assertSessionHasNoErrors()
             ->assertRedirect('/');
-        $count += 1;
-        $this->assertSame($count, inbraakMelding::count());
+        echo inbraakMelding::count();
+        $this->assertSame(1, inbraakMelding::count());
     }
 }
