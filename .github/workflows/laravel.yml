@@ -65,3 +65,18 @@ jobs:
       run: | 
         php artisan migrate:fresh --seed
         php artisan test
+  arduino:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: arduino/compile-sketches@v1
+      with:
+        fqbn: 'arduino:avr:uno'
+        sketch-paths: |
+          - 'Hardware/CameraWebServer.ino'
+          - 'Hardware/Eind_esp32.ino'
+        libraries: |
+          - 'Hardware/camera_index.h'
+          - 'Hardware/camera_pins.h'
+          - 'Hardware/app_httpd.cpp'
+          - 'Hardware/partitions.csv'
