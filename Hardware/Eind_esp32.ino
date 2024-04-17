@@ -168,6 +168,25 @@ void set_alarm(){
   }
 }
 
+void set_remote_alarm(){
+  if(WiFi.status() == WL_CONNECTED) {
+    WiFiClient client;
+    String url = "/alarm";
+        HTTPClient http;
+        http.begin("http://" + String(serverUrl) + ":" + String(port) + String(url)); //HTTP
+        int httpCode = http.GET();
+
+        if(httpCode > 0) {
+            Serial.println(httpCode);
+            if(httpCode == HTTP_CODE_OK) {
+                // String payload = http.getString();
+                // Serial.println(remote_alarm_state);
+            }
+        }
+        http.end();
+  }
+}
+
 void set_led(int led_state){
   if(led_state == 1){
     digitalWrite(ledPin, HIGH);
@@ -184,12 +203,7 @@ void loop() {
   movement_detected_check();
 
   if(button1.isPressed()){
-    if (!alarm_check) {
-      alarm_check = 1;
-    }
-    else if (alarm_check) {
-    alarm_check = 0;
-    }
+    set_remote_alarm();
     Serial.println("BUTTON IS PRESSED");
     Serial.println(alarm_check);
   }
