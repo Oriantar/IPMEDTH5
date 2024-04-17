@@ -13,7 +13,7 @@ class MeldingenController extends Controller
     public function index(): View
     {
         $user = auth()->user();
-        $inbraakmeldingen = inbraakMelding::where('user_id', $user->id)->get();
+        $inbraakmeldingen = inbraakMelding::where('user_id', $user->id)->latest()->take(5)->get();
         $sensoren = sensorids::where('user_id', $user->id)->get();
         $user->last_login = $user->now_login;
         $user->now_login = Carbon::now()->toDateTimeString();
