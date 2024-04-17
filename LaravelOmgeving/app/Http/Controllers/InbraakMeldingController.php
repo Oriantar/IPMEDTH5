@@ -13,18 +13,24 @@ class InbraakMeldingController extends Controller
     public function index(Request $request)
     {
         $sensorId = $request->segment(2); 
-    
+        $camera = $request->url;
+        
 
         $sensor = sensorids::where('sensorid', $sensorId)->first();
     
-
+        
         if ($sensor) {
             $inbraakMelding = new inbraakMelding;
             $inbraakMelding->sensor_id = $sensorId;
             $inbraakMelding->user_id = $sensor->user_id;
             $inbraakMelding->save();
         }
-    
+
+        if($camera == $sensor) return redirect('/');
+        else{
+            $sensor->cameraBeeld = $camera;
+            $sensor->save();
+        }
         return redirect('/');
     }
     

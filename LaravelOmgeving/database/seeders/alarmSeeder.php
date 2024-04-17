@@ -15,7 +15,7 @@ class alarmSeeder extends Seeder
     public function run(): void
      {
         DB::table('users')->insert([
-            'name' => 'Melvin',
+            'name' => ',melvin',
             'email' => 'melvin@melvin.melvin',
             'password' => Hash::make('melvin'),
         ]);
