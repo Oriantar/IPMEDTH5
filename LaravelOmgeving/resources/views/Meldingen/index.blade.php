@@ -6,7 +6,7 @@
             @endphp
 
             @if (count($inbraakmeldingen) > 0 && count($sensoren) > 0)
-                @foreach ($inbraakmeldingen->reverse() as $inbraakmelding)
+                @foreach ($inbraakmeldingen as $inbraakmelding)
                     @php
                         $inbraakmelding_id = $inbraakmelding->id;
                     @endphp
