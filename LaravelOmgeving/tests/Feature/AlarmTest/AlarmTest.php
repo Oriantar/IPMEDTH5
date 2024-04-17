@@ -33,6 +33,10 @@ class AlarmTest extends TestCase
        }
     
        public function test_flappycam_can_change_alarm_to_false() : void{
+        DB::table("alarms")->insert([
+            'alarm' => 0,
+        ]);
+        User::factory()->create();
         $user = User::first();
         $response = $this
             ->actingAs($user)
