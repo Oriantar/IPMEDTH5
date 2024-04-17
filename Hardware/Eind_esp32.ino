@@ -96,9 +96,9 @@ void movement_detected_check(){
 void post_camera(){
   if(WiFi.status() == WL_CONNECTED) {
   WiFiClient client;
-  Serial.println("WiFi connected yallah");
-  String postData = "sensor_id=flappy_is_beste";
-  String url = "/inbraakmelding/flappy_is_beste/camerabeeld?url=http://192.168.195.128";
+  Serial.println("WiFi connected");
+  String camera_id = "UW_CAMERA_ID";  
+  String url = "/inbraakmelding/" + String(camera_id) + "/camerabeeld?url=" + String(camera_url);
 
   if (client.connect(serverUrl, port)){
       // Make a GET request
