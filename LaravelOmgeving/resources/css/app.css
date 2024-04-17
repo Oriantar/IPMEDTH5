@@ -34,6 +34,17 @@ textarea {
     padding-bottom: 8px;
 }
 
+nav {
+    width: 100%;
+
+    background-color: #001C64;
+}
+
+#bodem-nav {
+    position: fixed;
+    bottom: 0;
+}
+
 .achtergrond {
     display: flex;
     justify-content: center;
